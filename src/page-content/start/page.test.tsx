@@ -1,13 +1,13 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-import Home from "@/app/page";
+import Start from "./start";
 
-describe("Homepage", () => {
+describe("Start page", () => {
   it("renders without crashing", () => {
-    render(<Home />);
+    render(<Start />);
 
-    const main = screen.getByText("Get started by editing");
+    const main = screen.getByText("Who wants to be a millionaire?");
     expect(main).toBeInTheDocument();
   });
 });

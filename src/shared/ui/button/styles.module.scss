@@ -1,0 +1,29 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/breakpoints";
+@import "src/shared/styles/mixins";
+
+.button {
+  @include font($fontWeight: 600);
+  width: 18rem;
+  height: 3rem;
+  background-color: $orange-100;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $orange-80;
+  }
+
+  &:active {
+    background-color: $orange-120;
+  }
+
+  @media (min-width: $large) {
+    @include font($fontWeight: 600, $fontSize: 1.25rem, $lineHeight: 1.4375rem);
+    min-width: 18.5rem;
+    height: 4rem;
+  }
+}

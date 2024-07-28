@@ -1,0 +1,21 @@
+@import 'src/shared/styles/colors';
+
+@mixin font($fontSize: 1rem, $lineHeight: 1rem, $fontWeight: 400, $color: $white-100) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: $color;
+}
+
+@mixin background-diagonal() {
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    border-bottom: 100vh solid $orange-5;
+    border-left: 100vw solid $white-100;
+  }
+}
+

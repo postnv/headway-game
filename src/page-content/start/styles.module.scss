@@ -1,0 +1,6 @@
+@import "src/shared/styles/mixins";
+
+.wrapper {
+  @include background-diagonal;
+  height: 100vh;
+}

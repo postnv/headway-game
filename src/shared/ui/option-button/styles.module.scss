@@ -1,0 +1,61 @@
+@import "src/shared/styles/colors";
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.btn-selected {
+  @extend .btn;
+  border: 2px solid $orange-100;
+}
+
+.btn-correct {
+  @extend .btn;
+  border: 2px solid $green-100;
+}
+
+.btn-wrong {
+  @extend .btn;
+  border: 2px solid $red-100;
+}
+
+.wrapper {
+  width: calc(100% - 2.125rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1.0625rem;
+    height: 1px;
+    background: $black-40;
+    top: 50%;
+
+    transition: background 0.3s linear;
+  }
+
+  &::before {
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
+
+  &::after {
+    right: 0;
+    transform: translate(100%, -50%);
+  }
+}
+
+.content {
+  position: absolute;
+}
