@@ -1,5 +1,4 @@
-{
-  "questions": [
+ [
     {
       "id": 1,
       "question": "What is the capital of France?",
@@ -319,5 +318,5 @@
       ],
       "sum": 1000000
     }
-  ]
-}
+ ]
+

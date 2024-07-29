@@ -1,1 +1,1 @@
-export { default as loadQuestions } from "./loadQuestions";
+export { default as loadQuestions } from "./mockLoadQuestions";
