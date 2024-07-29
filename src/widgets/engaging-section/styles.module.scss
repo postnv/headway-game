@@ -1,6 +1,5 @@
 @import "src/shared/styles/breakpoints";
 @import "src/shared/styles/colors";
-@import "src/shared/styles/mixins";
 
 .wrapper {
   width: 100%;
@@ -49,11 +48,15 @@
   }
 
   .title {
-    @include font($fontSize: 2rem, $lineHeight: 2.3125rem, $fontWeight: 600, $color: $black-100);
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.3125rem;
     text-align: center;
+    color: $black-100;
 
     @media (min-width: $large) {
-      @include font($fontSize: 3.5rem, $lineHeight: 4.0625rem, $fontWeight: 600, $color: $black-100);
+      font-size: 3.5rem;
+      line-height: 4.0625rem;
       text-align: left;
     }
   }
