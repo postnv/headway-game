@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "test": "jest",
-    "serve": "json-server --watch db.json --port 4000"
+    "serve": "node src/app/api/mock-server.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
-    "json-server": "^1.0.0-beta.1",
+    "json-server": "^0.17.4",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
