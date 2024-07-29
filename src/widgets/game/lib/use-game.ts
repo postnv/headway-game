@@ -1,39 +1,41 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { wait } from "@/src/shared/lib";
-import { QuestionType, AnswerType } from "../types";
+import { useGameStore, AnswerType } from "@/src/entities/game";
+import { wait, useUnmount } from "@/src/shared/lib";
 
-export default function useGame(questions: QuestionType[]) {
-  const [selectedQuestion, setQuestion] = useState(questions[0]);
+export default function useGame() {
   const [selectedAnswer, setAnswer] = useState<AnswerType>();
+
+  const { questions, selectedQuestion, score, nextQuestion, reset } =
+    useGameStore((store) => store);
 
   const router = useRouter();
 
-  const finishGame = (score: number) => router.push(`/result?score=${score}`);
+  const finishGame = (finalScore: number) => {
+    router.push(`/result?score=${finalScore}`);
+  };
 
   const handleCorrectAnswer = () => {
     const questionIdx = questions.indexOf(selectedQuestion);
+    const lastQuestionIdx = questions.length - 1;
 
-    if (questionIdx === questions.length - 1) {
+    if (questionIdx === lastQuestionIdx) {
       finishGame(selectedQuestion.sum);
     } else {
-      setQuestion(questions[questionIdx + 1]);
       setAnswer(undefined);
+      nextQuestion();
     }
   };
 
-  const handleWrongAnswer = () => {
-    const questionIdx = questions.indexOf(selectedQuestion);
-    const score = questions[questionIdx - 1]?.sum || 0;
-
-    finishGame(score);
-  };
+  const handleWrongAnswer = () => finishGame(score);
 
   const verifyAnswer = (answer: AnswerType) => {
     setAnswer(answer);
 
     wait(answer.correct ? handleCorrectAnswer : handleWrongAnswer, 1000);
   };
+
+  useUnmount(reset);
 
   return { selectedQuestion, selectedAnswer, verifyAnswer };
 }

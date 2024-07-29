@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/src/shared/ui/button";
@@ -5,7 +6,7 @@ import { Button } from "@/src/shared/ui/button";
 import styles from "./styles.module.scss";
 
 type PropsType = {
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   btnText?: string;
   href?: string;

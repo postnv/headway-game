@@ -5,7 +5,13 @@ import styles from "./styles.module.scss";
 export default function StartPage() {
   return (
     <div className={styles.wrapper}>
-      <EngagingSection title="Who wants to be a millionaire?" />
+      <EngagingSection
+        title={
+          <>
+            Who wants to be <br /> a millionaire?
+          </>
+        }
+      />
     </div>
   );
 }

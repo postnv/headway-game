@@ -1,12 +1,5 @@
 @import 'src/shared/styles/colors';
 
-@mixin font($fontSize: 1rem, $lineHeight: 1rem, $fontWeight: 400, $color: $white-100) {
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  line-height: $lineHeight;
-  color: $color;
-}
-
 @mixin background-diagonal() {
   &:after {
     content: "";
@@ -16,6 +9,32 @@
     top: 0;
     border-bottom: 100vh solid $orange-5;
     border-left: 100vw solid $white-100;
+  }
+}
+
+@mixin side-lines($bg-color: $black-40) {
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-width: 1.0625rem;
+    height: 1px;
+    background: $bg-color;
+    top: 50%;
+
+    transition: background 0.3s linear;
+  }
+
+  &::before {
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
+
+  &::after {
+    right: 0;
+    transform: translate(100%, -50%);
   }
 }
 

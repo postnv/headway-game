@@ -1,0 +1,81 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/mixins";
+@import "src/shared/styles/breakpoints";
+
+@mixin option-state($outline, $fill: $white-100) {
+  fill: $fill;
+
+  & .wrapper {
+    &::before,
+    &::after {
+      background: $outline;
+    }
+  }
+
+  & svg > path  {
+    stroke: $outline;
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: inherit;
+  cursor: pointer;
+  overflow-x: hidden;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not(.option-correct):not(.option-wrong):hover {
+      @include option-state($orange-100)
+    }
+  }
+
+  &:focus-within {
+    outline: none;
+
+    &:not(.option-correct):not(.option-wrong) {
+      @include option-state($orange-100, $orange-5)
+    }
+
+  }
+
+  &-correct {
+    @include option-state($green-100, $green-5)
+  }
+
+  &-wrong {
+    @include option-state($red-100, $red-5)
+  }
+
+  .wrapper {
+    @include side-lines;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 18rem;
+    height: 3.5rem;
+
+    @media (min-width: $large) {
+      width: 23.3135rem;
+      height: 4.5rem;
+    }
+  }
+
+  .content {
+    width: 15rem;
+    position: absolute;
+    text-align: start;
+    word-break: break-word;
+    font-size: 0.875rem;
+    line-height: 1rem;
+
+    @media (min-width: $large) {
+      font-size: 1.25rem;
+      line-height: 1.4375rem;
+      width: 19.3125rem;
+    }
+  }
+}
