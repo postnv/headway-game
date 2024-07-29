@@ -8,7 +8,7 @@
   & .wrapper {
     &::before,
     &::after {
-      background: $outline;
+      background: $outline!important;
     }
   }
 
@@ -25,6 +25,10 @@
   background-color: inherit;
   cursor: pointer;
   overflow-x: hidden;
+
+  & svg > path  {
+    transition: all 0.3s;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:not(.option-correct):not(.option-wrong):hover {

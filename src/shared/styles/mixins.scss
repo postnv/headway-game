@@ -1,4 +1,5 @@
 @import 'src/shared/styles/colors';
+@import 'src/shared/styles/breakpoints';
 
 @mixin background-diagonal() {
   &:after {
@@ -23,8 +24,11 @@
     height: 1px;
     background: $bg-color;
     top: 50%;
-
     transition: background 0.3s linear;
+
+    @media (max-width: $large) {
+      width: 200%;
+    }
   }
 
   &::before {

@@ -2,6 +2,8 @@
 @import "src/shared/styles/colors";
 
 .sidebar {
+  display: none;
+
   @media (min-width: $large) {
     display: flex;
     width: 100%;
@@ -25,7 +27,6 @@
     width: 100%;
   }
 
-  display: none;
   &.menu-opened {
     display: flex;
     position: fixed;
